@@ -1,5 +1,5 @@
 # Responsive Email Boilerplate
-Ce template est une base de travail lorsque l'on souhaite construire un modèle pour des emailings. Lorsque je réalise un email, c'est à partir de cette base que je commence.
+Ce template est une base de travail lorsque l'on souhaite construire un modèle pour des emailings. Pour la réalisation d'un email, c'est à partir de cette base que je commence.
 
 Essentiellement basé sur [Antwort](http://internations.github.io/antwort/), c'est un regroupement d'astuces, de pratiques glanées à travers de nombreux articles et ressources tels que [HTML Email Boilerplate](http://htmlemailboilerplate.com/), mais aussi bien sûr de mes propres expériences.
 
