@@ -7,7 +7,7 @@ Difficile d'envoyer des emails non adaptés aux mobiles de nos jours au vu des t
 
 ## Caractéristiques
 * Adapté aux mobiles sur iOS et Android
-* Fonctionne sur la majorité des clients web tel que Gmail, Outlook.com et Yahoo!
+* Fonctionne sur la majorité des clients web tel que Gmail, Outlook.com, Yahoo!, LaPoste.net, Orange, SFR et Voilà
 * Fonctionne sur les logiciels Outlook (2000+)
 
 ## Comment ça marche ?
@@ -29,8 +29,14 @@ Dans les media queries, les classes sont visées via l'utilisation de sélecteur
 * [Les slides de la conférence d'HTeuMeuLeu sur l'intégration d'e-mails responsive lors de la Kiwi Party 2013](http://fr.slideshare.net/HTeuMeuLeu/lintgration-demails-responsive)
 * Le tutoriel [Un e-mail en HTML responsive multi-clients](http://www.alsacreations.com/tuto/lire/1533-un-e-mail-en-html-responsive-multi-clients.html) sur Alsacreations
 * [Top 10 des clients mails par Litmus](http://emailclientmarketshare.com/)
+* [Conférence Paris Web 2014 de HTeuMeuLeu : "Comment sortir l'intégration d'e-mails de la préhistoire ?"](https://speakerdeck.com/hteumeuleu/comment-sortir-lintegration-de-mails-de-la-prehistoire)
+* [Le blog dédié aux emails de HTeuMeuLeu](http://emails.hteumeuleu.fr)
 
 ## Changelog
+
+### 0.2
+* Changement du doctype en rapport avec celui utilisé par la majorité des clients web
+* Prise en compte des spécificités liées aux clients web Français
 
 ### 0.1
 * Hello world!
