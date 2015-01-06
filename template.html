@@ -29,11 +29,18 @@
     table td { border-collapse: collapse; }
 
     /* Constrain email width for small screens */
+
+    /* French specific: Useless media querie to prevent the first media querie to be ignored on LaPoste Mobile web client */
+    @media screen and (max-width: 0) {
+        body { margin: 0; }
+    }
+
     @media screen and (max-width: 600px) {
+        /* French specific: All properties must set to !important for the first specification to not be ignored on LaPoste, Orange, SFR and Voilà web client */
         img {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
         }
 
         table[class="container"] {
