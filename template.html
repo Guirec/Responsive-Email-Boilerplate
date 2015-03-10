@@ -35,11 +35,13 @@
         line-height: 100%;
     }
 
-    /* Constrain email width for small screens */
+    /* Media queries */
 
     /* French specific: Useless media querie to prevent the first media querie to be ignored on LaPoste Mobile web client */
     @media screen and (max-width: 0) {
-        body { margin: 0; }
+        body {
+            margin: 0;
+        }
     }
 
     @media screen and (max-width: 600px) {
@@ -50,42 +52,43 @@
             height: auto !important;
         }
 
-        table[class="container"] {
+        .container {
             width: 95% !important;
         }
 
-        /* force container columns to (horizontal) blocks */
-        td[class="force-col"] {
+        /* Force container columns to (horizontal) blocks */
+        .force-col {
             display: block;
             padding-right: 0 !important;
         }
 
-        table[class="col"] {
-            /* unset table align="left/right" */
+        .col {
+            /* Unset table align="left/right" */
             float: none !important;
             width: 100% !important;
 
-            /* change left/right padding and margins to top/bottom ones */
+            /* Change left/right padding and margins to top/bottom ones */
             margin-bottom: 10px !important;
             padding-bottom: 10px !important;
             border-bottom: 1px solid #ebebeb;
         }
 
-        /* remove bottom border for last column/row */
-        table[id="last-col-2"], table[id="last-col-3"] {
+        /* Remove bottom border for last column/row */
+        #last-col-2,
+        #last-col-3 {
             border-bottom: none !important;
             margin-bottom: 0;
         }
 
-        /* align images right and shrink them a bit */
-        img[class="col-3-img"] {
+        /* Align images right and shrink them a bit */
+        .col-3-img {
             float: right;
             margin-left: 5px;
             width: 130px;
         }
 
-        /* align images right and shrink them proportionally */
-        img[class="col-2-img"] {
+        /* Align images right and shrink them proportionally */
+        .col-2-img {
             float: right;
             margin-left: 5px;
             width: 45%;
@@ -94,13 +97,13 @@
 
     /* Give content more room on mobile */
     @media screen and (max-width: 480px) {
-        td[class="container-inner"] {
+        .container-inner {
             padding-left: 10px !important;
             padding-right: 10px !important;
         }
 
-        /* return to the above and take all the available space */
-        img[class="col-2-img"] {
+        /* Return to the above and take all the available space */
+        .col-2-img {
             width: 100% !important;
         }
     }
