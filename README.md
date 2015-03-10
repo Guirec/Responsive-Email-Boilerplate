@@ -20,8 +20,6 @@ Les balises de titres sont les plus risquées à utiliser car les clients mails 
 
 La balise `<p>` est moins problématique à utiliser, mais je fais le choix de m'en passer lorsque cela est possible [depuis que Outlook.com ne supporte plus la propriété `margin`](https://litmus.com/blog/hotmail-and-outlook-com-drop-support-for-margin). A la place je mets un double retour à la ligne `<br /><br />` qui a l'avantage de proposer quasiment le même rendu peu importe le client, mais aussi de n'avoir à déclarer les propriétés de font qu'une seule fois sur le `<td>` plutôt que chaque `<p>`.
 
-Dans les media queries, les classes sont visées via l'utilisation de sélecteurs d'attributs tel que `table[class="container"]` plutôt que `table.container` ou `.container`. [La faute à Yahoo!](http://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/)
-
 ## Ressources
 * [Guide du support CSS](http://www.campaignmonitor.com/css) et [guide du support des medias queries](http://www.campaignmonitor.com/guides/mobile/) chez Campaign Monitor
 * [Les guides proposés par MailChimp](http://mailchimp.com/resources/)
