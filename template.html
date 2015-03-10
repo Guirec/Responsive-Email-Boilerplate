@@ -1,247 +1,245 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style type="text/css">
-    /*
-     * Inlined styles explained
-     *
-     * 1. 'text-size-adjust' prefixed property is here to prevent Webkit and Windows Mobile platforms from changing default font sizes.
-     * 2. 'border-spacing: 0' property on <table> tags resolves webkit padding issue
-     * 3. 'border-collapse: collapse' property on <td> fix a padding issue for Outlook 07, 10
-     * 4. Some trouble with iOS who creates blue links over phone numbers, dates and addresses ?
-     *    Check that: https://litmus.com/blog/remove-blue-links-ios
-     * 5. Gmail and Outlook.com unwantedly adds in an extra space below images when using non IE browsers.
-     *    You may not always want all of your images to be block elements.
-     *    Add 'display: block;' as inline style to any image you need to fix.
-     */
+    <head>
+        <title>Responsive Email Boilerplate</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+        /*
+         * Inlined styles explained
+         *
+         * 1. 'text-size-adjust' prefixed property is here to prevent Webkit and Windows Mobile platforms from changing default font sizes.
+         * 2. 'border-spacing: 0' property on <table> tags resolves webkit padding issue
+         * 3. 'border-collapse: collapse' property on <td> fix a padding issue for Outlook 07, 10
+         * 4. Some trouble with iOS who creates blue links over phone numbers, dates and addresses ?
+         *    Check that: https://litmus.com/blog/remove-blue-links-ios
+         * 5. Gmail and Outlook.com unwantedly adds in an extra space below images when using non IE browsers.
+         *    You may not always want all of your images to be block elements.
+         *    Add 'display: block;' as inline style to any image you need to fix.
+         */
 
-    /* Force Outlook.com to display emails at full width */
-    .ExternalClass {
-        display: block !important;
-        width: 100%;
-    }
-
-    /* Forces Outlook.com to display normal line spacing
-       More on that: http://www.emailonacid.com/forum/viewthread/43 */
-    .ExternalClass,
-    .ExternalClass p,
-    .ExternalClass span,
-    .ExternalClass font,
-    .ExternalClass td,
-    .ExternalClass div {
-        line-height: 100%;
-    }
-
-    /* Media queries */
-
-    /* French specific: Useless media querie to prevent the first media querie to be ignored on LaPoste Mobile web client */
-    @media screen and (max-width: 0) {
-        body {
-            margin: 0;
-        }
-    }
-
-    @media screen and (max-width: 600px) {
-        /* French specific: All properties must set to !important for the first specification to not be ignored on LaPoste, Orange, SFR and Voilà web client */
-        img {
-            width: 100% !important;
-            max-width: 100% !important;
-            height: auto !important;
+        /* Force Outlook.com to display emails at full width */
+        .ExternalClass {
+            display: block !important;
+            width: 100%;
         }
 
-        .container {
-            width: 95% !important;
+        /* Forces Outlook.com to display normal line spacing
+           More on that: http://www.emailonacid.com/forum/viewthread/43 */
+        .ExternalClass,
+        .ExternalClass p,
+        .ExternalClass span,
+        .ExternalClass font,
+        .ExternalClass td,
+        .ExternalClass div {
+            line-height: 100%;
         }
 
-        /* Force container columns to (horizontal) blocks */
-        .force-col {
-            display: block;
-            padding-right: 0 !important;
+        /* Media queries */
+
+        /* French specific: Useless media querie to prevent the first media querie to be ignored on LaPoste Mobile web client */
+        @media screen and (max-width: 0) {
+            body {
+                margin: 0;
+            }
         }
 
-        .col {
-            /* Unset table align="left/right" */
-            float: none !important;
-            width: 100% !important;
+        @media screen and (max-width: 600px) {
+            /* French specific: All properties must set to !important for the first specification to not be ignored on LaPoste, Orange, SFR and Voilà web client */
+            img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100% !important;
+            }
 
-            /* Change left/right padding and margins to top/bottom ones */
-            margin-bottom: 10px !important;
-            padding-bottom: 10px !important;
-            border-bottom: 1px solid #ebebeb;
+            .container {
+                width: 95% !important;
+            }
+
+            /* Force container columns to (horizontal) blocks */
+            .force-col {
+                display: block;
+                padding-right: 0 !important;
+            }
+
+            .separator {
+                display: none;
+            }
+
+            .col {
+                /* Unset table align="left/right" */
+                float: none !important;
+                width: 100% !important;
+
+                /* Change left/right padding and margins to top/bottom ones */
+                margin-bottom: 10px !important;
+                padding-bottom: 10px !important;
+                border-bottom: 1px solid #ebebeb;
+            }
+
+            /* Remove bottom border for last column/row */
+            #last-col-2,
+            #last-col-3 {
+                margin-bottom: 0;
+                border-bottom: none !important;
+            }
+
+            /* Align images right and shrink them a bit */
+            .col-3-img {
+                float: right;
+                width: 130px;
+                margin-left: 5px;
+            }
+
+            /* Align images right and shrink them proportionally */
+            .col-2-img {
+                float: right;
+                width: 45%;
+                margin-left: 5px;
+            }
         }
 
-        /* Remove bottom border for last column/row */
-        #last-col-2,
-        #last-col-3 {
-            border-bottom: none !important;
-            margin-bottom: 0;
+        /* Give content more room on mobile */
+        @media screen and (max-width: 480px) {
+            .content {
+                padding-right: 10px !important;
+                padding-left: 10px !important;
+            }
+
+            /* Return to the above and take all the available space */
+            .col-2-img {
+                width: 100% !important;
+            }
         }
+        </style>
+    </head>
+    <body style="width: 100%; margin: 0; padding: 0; background-color: #ebebeb; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+        <table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ebebeb" class="wrapper" style="background-color: #ebebeb; border-spacing: 0;">
+            <tr>
+                <td align="center" valign="top" bgcolor="#ebebeb" class="center" style="padding: 20px 0; background-color: #ebebeb; border-collapse: collapse; vertical-align: top;">
+                    <table width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" class="container" style="font-family: Arial, sans-serif; border-spacing: 0;">
+                        <tr>
+                            <td align="left" valign="top" bgcolor="#ffffff" class="content" style="padding: 20px 25px; font-size: 14px; line-height: 20px; color: #333; background-color: #fff; border-collapse: collapse; vertical-align: top;">
+                                <div class="title" style="font-size: 18px; font-weight: bold; line-height: 24px; color: #c21f52;">Responsive Email Boilerplate</div>
+                                <br>
 
-        /* Align images right and shrink them a bit */
-        .col-3-img {
-            float: right;
-            margin-left: 5px;
-            width: 130px;
-        }
+                                Ce template est une base de travail lorsque l'on souhaite construire un mod&egrave;le pour des emailings. Ce dernier s'adapte aux mobiles en mixant design fluide et adaptatif.
+                                <br><br>
 
-        /* Align images right and shrink them proportionally */
-        .col-2-img {
-            float: right;
-            margin-left: 5px;
-            width: 45%;
-        }
-    }
+                                Un jeu de tableaux permet de centrer la zone de contenu. La balise <span class="code" style="font-family: Andale Mono, Courier, monospace; color: #666;">&lt;table&gt;</span> poss&eacute;dant une largeur de 100% permet de garantir que la zone de contenu sera centr&eacute;e m&ecirc;me sur les clients qui suppriment la balise <span class="code" style="font-family: Andale Mono, Courier, monospace; color: #666;">&lt;body&gt;</span>.
+                                <br><br>
 
-    /* Give content more room on mobile */
-    @media screen and (max-width: 480px) {
-        .container-inner {
-            padding-left: 10px !important;
-            padding-right: 10px !important;
-        }
+                                La balise <span class="code" style="font-family: Andale Mono, Courier, monospace; color: #666;">&lt;table&gt;</span> avec la classe <span class="code" style="font-family: Andale Mono, Courier, monospace; color: #666;">container</span> fonctionne de la mani&egrave;re suivante :
+                                <br><br>
 
-        /* Return to the above and take all the available space */
-        .col-2-img {
-            width: 100% !important;
-        }
-    }
-    </style>
-</head>
-<body style="margin: 0; padding: 0; -webkit-text-size-adjust: none; -ms-text-size-adjust: 100%;">
-    <table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ebebeb">
-        <tr>
-            <td align="center" valign="top" bgcolor="#ebebeb" style="padding: 20px 0; background-color: #ebebeb;">
-                <table class="container" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff">
-                    <tr>
-                        <td class="container-inner" align="left" valign="top" bgcolor="#ffffff" style="padding: 20px 25px; font-family: Arial, sans-serif; font-size: 14px;  line-height: 20px; color: #333333; background-color: #ffffff;">
-                            <div style="font-size: 18px; font-weight: bold; line-height: 24px; color: #c21f52">Responsive Email Boilerplate</div>
-                            <br />
+                                <strong>Sur ordinateur :</strong>
+                                <ul>
+                                    <li>Elle encadre le contenu &agrave; la largeur maximum conseill&eacute;e de <span class="code" style="font-family: Andale Mono, Courier, monospace; color: #666;">600px</span></li>
+                                    <li>Un padding de <span class="code" style="font-family: Andale Mono, Courier, monospace; color: #666;">25px</span> est appliqu&eacute; sur la gauche et la droite, ce qui signifie que le contenu occupe une place r&eacute;elle de <span class="code" style="font-family: Andale Mono, Courier, monospace; color: #666;">550px</span></li>
+                                </ul>
 
-                            Ce template est une base de travail lorsque l'on souhaite construire un modèle pour des emailings. Ce dernier s'adapte aux mobiles en mixant design fluide et adaptatif.
-                            <br /><br />
+                                <strong>Sur mobile :</strong>
+                                <ul>
+                                    <li>La zone de contenu devient fluide et prend une largeur de <span class="code" style="font-family: Andale Mono, Courier, monospace; color: #666;">95%</span></li>
+                                    <li>En de&ccedil;a de <span class="code" style="font-family: Andale Mono, Courier, monospace; color: #666;">480px</span> de largeur, le padding passe &agrave; <span class="code" style="font-family: Andale Mono, Courier, monospace; color: #666;">10px</span> sur la gauche et la droite</li>
+                                </ul>
+                                <br>
 
-                            Un jeu de tableaux permet de centrer la zone de contenu. La balise <span style="font-family: Andale Mono, Courier, monospace; color: #666;">&lt;table&gt;</span> possédant une largeur de 100% permet de garantir que la zone de contenu sera centrée même sur les clients qui suppriment la balise <span style="font-family: Andale Mono, Courier, monospace; color: #666;">&lt;body&gt;</span>.
-                            <br /><br />
+                                <div class="title" style="font-size: 18px; font-weight: bold; line-height: 24px; color: #c21f52;">Une image occupant toute la largeur</div>
+                                <br>
 
-                            La balise <span style="font-family: Andale Mono, Courier, monospace; color: #666;">&lt;table&gt;</span> avec la classe <span style="font-family: Andale Mono, Courier, monospace; color: #666;">container</span> fonctionne de la manière suivante :
-                            <br /><br />
+                                <img src="http://placehold.it/550x120" alt="" border="0" style="text-decoration: none; outline: none; -ms-interpolation-mode: bicubic;">
+                                <br><br>
 
-                            <strong>Sur ordinateur :</strong>
-                            <ul>
-                                <li>Elle encadre le contenu à la largeur maximum conseillée de <span style="font-family: Andale Mono, Courier, monospace; color: #666;">600px</span></li>
-                                <li>Un padding de <span style="font-family: Andale Mono, Courier, monospace; color: #666;">25px</span> est appliqué sur la gauche et la droite, ce qui signifie que le contenu occupe une place réelle de <span style="font-family: Andale Mono, Courier, monospace; color: #666;">550px</span></li>
-                            </ul>
 
-                            <strong>Sur mobile :</strong>
-                            <ul>
-                                <li>La zone de contenu devient fluide et prend une largeur de <span style="font-family: Andale Mono, Courier, monospace; color: #666;">95%</span></li>
-                                <li>En deça de <span style="font-family: Andale Mono, Courier, monospace; color: #666;">480px</span> de largeur, le padding passe à <span style="font-family: Andale Mono, Courier, monospace; color: #666;">10px</span> sur la gauche et la droite</li>
-                            </ul>
-                            <br />
+                                <div class="title" style="font-size: 18px; font-weight: bold; line-height: 24px; color: #c21f52;">Utilisation de colonnes pour la mise en forme de contenus</div>
+                                <br>
 
-                            <div style="font-size: 18px; font-weight: bold; line-height: 24px; color: #c21f52">Une image occupant toute la largeur</div>
-                            <br />
+                                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-spacing: 0;">
+                                    <tr>
+                                        <td valign="top" class="force-col" style="padding-right: 20px; border-collapse: collapse; vertical-align: top;">
+                                            <table border="0" cellspacing="0" cellpadding="0" width="265" align="left" class="col" style="border-spacing: 0;">
+                                                <tr>
+                                                    <td align="left" valign="top" style="border-collapse: collapse; vertical-align: top;">
+                                                        <img src="http://placehold.it/265x190" alt="" border="0" class="col-2-img" style="text-decoration: none; outline: none; -ms-interpolation-mode: bicubic;">
+                                                        <div class="subtitle" style="font-size: 15px; font-weight: bold; line-height: 20px; color: #c21f52;">
+                                                            <a href="#" style="text-decoration: underline; color: #4b85bd;">Lorem ipsum</a>
+                                                        </div>
+                                                        Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet&hellip;
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td valign="top" class="force-col" style="border-collapse: collapse; vertical-align: top;">
+                                            <table id="last-col-2" border="0" cellspacing="0" cellpadding="0" width="265" align="left" class="col" style="border-spacing: 0;">
+                                                <tr>
+                                                    <td align="left" valign="top" style="border-collapse: collapse; vertical-align: top;">
+                                                        <img src="http://placehold.it/265x190" alt="" border="0" class="col-2-img" style="text-decoration: none; outline: none; -ms-interpolation-mode: bicubic;">
+                                                        <div class="subtitle" style="font-size: 15px; font-weight: bold; line-height: 20px; color: #c21f52;">
+                                                            <a href="#" style="text-decoration: underline; color: #4b85bd;">Lorem ipsum</a>
+                                                        </div>
+                                                        Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet&hellip;
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br>
 
-                            <img src="http://placehold.it/550x120" alt="" border="0" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;" />
-                            <br /><br />
-
-                            <div style="font-size: 18px; font-weight: bold; line-height: 24px; color: #c21f52">Utilisation de colonnes pour la mise en forme de contenus</div>
-                            <br />
-
-                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td class="force-col" valign="top" style="padding-right: 20px;">
-                                        <table border="0" cellspacing="0" cellpadding="0" width="265" align="left" class="col">
-                                            <tr>
-                                                <td align="left" valign="top" style="font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
-                                                    <img src="http://placehold.it/265x190" alt="" border="0" style="vertical-align: middle; padding-bottom: 10px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;" class="col-2-img" />
-                                                    <a href="#" style="font-weight:bold; color: #4b85bd; text-decoration: underline;">Lorem ipsum</a>
-                                                    <br />
-                                                    Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet&hellip;
-                                                    <br />
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td class="force-col" valign="top">
-                                        <table border="0" cellspacing="0" cellpadding="0" width="265" align="right" class="col" id="last-col-2">
-                                            <tr>
-                                                <td align="left" valign="top" style="font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
-                                                    <img src="http://placehold.it/265x190" alt="" border="0" style="vertical-align: top; padding-bottom: 10px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;" class="col-2-img" />
-                                                    <a href="#" style="font-weight:bold; color: #4b85bd; text-decoration: underline;">Lorem ipsum</a>
-                                                    <br />
-                                                    Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet&hellip;
-                                                    <br />
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                            <br />
-
-                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td class="force-col" valign="top" style="padding-right: 20px;">
-                                        <!-- column 1 -->
-                                        <table border="0" cellspacing="0" cellpadding="0" width="170" align="left" class="col">
-                                            <tr>
-                                                <td align="left" valign="top" style="font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
-                                                    <img src="http://placehold.it/170x130" alt="" border="0" style="vertical-align: top; padding-bottom: 10px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;" class="col-3-img" />
-                                                    <a href="#" style="font-weight:bold; color: #4b85bd; text-decoration: underline;">Lorem ipsum</a>
-                                                    <br />
-                                                    Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet&hellip;
-                                                    <br />
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td class="force-col" valign="top" style="padding-right: 20px;">
-                                        <table border="0" cellspacing="0" cellpadding="0" width="170" align="left" class="col">
-                                            <tr>
-                                                <td align="left" valign="top" style="font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
-                                                    <img src="http://placehold.it/170x130" alt="" border="0" style="vertical-align: top; padding-bottom: 10px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;" class="col-3-img" />
-                                                    <a href="#" style="font-weight:bold; color: #4b85bd; text-decoration: underline;">Lorem ipsum</a>
-                                                    <br />
-                                                    Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet&hellip;
-                                                    <br />
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td class="force-col" valign="top">
-                                        <table border="0" cellspacing="0" cellpadding="0" width="170" align="right" class="col" id="last-col-3">
-                                            <tr>
-                                                <td align="left" valign="top" style="font-family: Arial, sans-serif; font-size: 14px; line-height: 20px;">
-                                                    <img src="http://placehold.it/170x130" alt="" border="0" style="vertical-align: top; padding-bottom: 10px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;" class="col-3-img" />
-                                                    <a href="#" style="font-weight:bold; color: #4b85bd; text-decoration: underline;">Lorem ipsum</a>
-                                                    <br />
-                                                    Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet&hellip;
-                                                    <br />
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td align="center" valign="top" bgcolor="#ebebeb" style="padding: 0 0 20px; background-color: #ebebeb;">
-                <table class="container" width="600" cellpadding="0" cellspacing="0" border="0">
-                    <tr>
-                        <td class="container-inner" align="left" valign="top" style="padding: 0 25px; font-size: 12px; color: #9f9f9f;">
-                            Vous recevez cet email car vous êtes enregistrée sur notre site ou bien vous avez participé à un de nos concours. <a href="#" style="color: #7d7d7d; text-decoration: none;">Si vous ne souhaitez plus recevoir d'emails promotionnels de notre part, vous pouvez vous désinscrire</a>.
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-</body>
+                                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-spacing: 0;">
+                                    <tr>
+                                        <td valign="top" class="force-col" style="padding-right: 20px; border-collapse: collapse; vertical-align: top;">
+                                            <table border="0" cellspacing="0" cellpadding="0" width="170" align="left" class="col" style="border-spacing: 0;">
+                                                <tr>
+                                                    <td align="left" valign="top" style="border-collapse: collapse; vertical-align: top;">
+                                                        <img src="http://placehold.it/170x130" alt="" border="0" class="col-3-img" style="text-decoration: none; outline: none; -ms-interpolation-mode: bicubic;">
+                                                        <div class="subtitle" style="font-size: 15px; font-weight: bold; line-height: 20px; color: #c21f52;">
+                                                            <a href="#" style="text-decoration: underline; color: #4b85bd;">Lorem ipsum</a>
+                                                        </div>
+                                                        Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet&hellip;
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td valign="top" class="force-col" style="padding-right: 20px; border-collapse: collapse; vertical-align: top;">
+                                            <table border="0" cellspacing="0" cellpadding="0" width="170" align="left" class="col" style="border-spacing: 0;">
+                                                <tr>
+                                                    <td align="left" valign="top" style="border-collapse: collapse; vertical-align: top;">
+                                                        <img src="http://placehold.it/170x130" alt="" border="0" class="col-3-img" style="text-decoration: none; outline: none; -ms-interpolation-mode: bicubic;">
+                                                        <div class="subtitle" style="font-size: 15px; font-weight: bold; line-height: 20px; color: #c21f52;">
+                                                            <a href="#" style="text-decoration: underline; color: #4b85bd;">Lorem ipsum</a>
+                                                        </div>
+                                                        Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet&hellip;
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td valign="top" class="force-col" style="border-collapse: collapse; vertical-align: top;">
+                                            <table id="last-col-3" border="0" cellspacing="0" cellpadding="0" width="170" align="left" class="col" style="border-spacing: 0;">
+                                                <tr>
+                                                    <td align="left" valign="top" style="border-collapse: collapse; vertical-align: top;">
+                                                        <img src="http://placehold.it/170x130" alt="" border="0" class="col-3-img" style="text-decoration: none; outline: none; -ms-interpolation-mode: bicubic;">
+                                                        <div class="subtitle" style="font-size: 15px; font-weight: bold; line-height: 20px; color: #c21f52;">
+                                                            <a href="#" style="text-decoration: underline; color: #4b85bd;">Lorem ipsum</a>
+                                                        </div>
+                                                        Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis dapibus posuere velit aliquet&hellip;
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top" bgcolor="#ebebeb" class="footer" style="padding: 10px 25px 0; font-size: 12px; line-height: 15px; text-align: center; color: #9f9f9f; background-color: #ebebeb; border-collapse: collapse; vertical-align: top;">
+                                Vous recevez cet email car vous &ecirc;tes enregistr&eacute;e sur notre site avec cette adresse email. Si vous ne souhaitez plus recevoir d'emails promotionnels de notre part, <a href="#" style="text-decoration: none; color: #7d7d7d;">vous pouvez vous d&eacute;sinscrire</a>.
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
 </html>
