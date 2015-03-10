@@ -34,6 +34,10 @@ Dans les media queries, les classes sont visées via l'utilisation de sélecteur
 
 ## Changelog
 
+### 0.3
+* L'utilisation du hack pour Yahoo! Mail des media queries n'est désormais plus nécessaire
+* Nettoyage du template pour retirer le code inutile
+
 ### 0.2
 * Changement du doctype en rapport avec celui utilisé par la majorité des clients web
 * Prise en compte des spécificités liées aux clients web Français
