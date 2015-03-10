@@ -5,28 +5,35 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style type="text/css">
-    /* Client-specific styles */
-    body { width: 100% !important; margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; } /* Prevent Webkit and Windows Mobile platforms from changing default font sizes. */
-    .ExternalClass { display: block !important; width: 100%; } /* Force Outlook.com to display emails at full width */
-    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; } /* Forces Outlook.com to display normal line spacing. More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+    /*
+     * Inlined styles explained
+     *
+     * 1. 'text-size-adjust' prefixed property is here to prevent Webkit and Windows Mobile platforms from changing default font sizes.
+     * 2. 'border-spacing: 0' property on <table> tags resolves webkit padding issue
+     * 3. 'border-collapse: collapse' property on <td> fix a padding issue for Outlook 07, 10
+     * 4. Some trouble with iOS who creates blue links over phone numbers, dates and addresses ?
+     *    Check that: https://litmus.com/blog/remove-blue-links-ios
+     * 5. Gmail and Outlook.com unwantedly adds in an extra space below images when using non IE browsers.
+     *    You may not always want all of your images to be block elements.
+     *    Add 'display: block;' as inline style to any image you need to fix.
+     */
 
-    /* Fonts and content. Need to be inline too */
-    body, td { font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 20px; color: #333333; }
-    body { background-color: #ebebeb; margin: 0; padding: 0; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; }
-    a { color: #4b85bd; text-decoration: underline; }
-    /* Some trouble with iOS who creates blue links over phone numbers, dates and addresses ? Check that: https://litmus.com/blog/remove-blue-links-ios */
+    /* Force Outlook.com to display emails at full width */
+    .ExternalClass {
+        display: block !important;
+        width: 100%;
+    }
 
-    /* Some sensible defaults for images. Need to be inline too */
-    img { outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
-    a img { border: none; }
-    /* Gmail and Outlook.com unwantedly adds in an extra space below images when using non IE browsers. You may not always want all of your images to be block elements. Apply the "image_fix" class to any image you need to fix. Need to be inline too */
-    .image_fix { display: block; }
-
-    /* resolves webkit padding issue */
-    table { border-spacing: 0; }
-
-    /* Outlook 07, 10 Padding issue fix */
-    table td { border-collapse: collapse; }
+    /* Forces Outlook.com to display normal line spacing
+       More on that: http://www.emailonacid.com/forum/viewthread/43 */
+    .ExternalClass,
+    .ExternalClass p,
+    .ExternalClass span,
+    .ExternalClass font,
+    .ExternalClass td,
+    .ExternalClass div {
+        line-height: 100%;
+    }
 
     /* Constrain email width for small screens */
 
